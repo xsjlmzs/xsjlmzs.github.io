@@ -446,10 +446,7 @@
 
       
         
-          <h1 id="kuangbin后缀数组18-E"><a href="#kuangbin后缀数组18-E" class="headerlink" title="kuangbin后缀数组18 E"></a>kuangbin后缀数组18 E</h1><h3 id="E"><a href="#E" class="headerlink" title="E"></a><a href="https://cn.vjudge.net/contest/70655#problem/E" target="_blank" rel="noopener">E</a></h3><p>​    给你一个长度不超过1e6的字符串，让你求出能够通过某个子串循环构成这个字符串，求最大的循环次数。 时间限制3000ms。</p>
-<h4 id="题解-后缀数组"><a href="#题解-后缀数组" class="headerlink" title="题解: 后缀数组"></a>题解: 后缀数组</h4><p>​    这道题标准做法是KMP求next数组，然后求出最小循环节，继而求出最大循环次数。时间复杂度为O(n)。之前学习KMP的时候就已经做过这道题了，next数组跑起来非常快，只用了110ms。这次试着用后缀数组来解决这个问题。</p>
-<p>​    思路还是类似next数组，目标是求出原字符串的相同且最长的前缀与后缀，这样不属于最大前后缀的部分且这部分的长度可以整除原字符串长度len。那么这部分就是这个字符串的最小循环节。 两个判断1.可以整除原串长度len。2.判断sa[0]和sa[i]的公共前缀是否是len-sa[i]。找出最小的sa[i]，用len除一下便是答案。详情看代码。</p>
-<p>​    后缀数组做法毋庸置疑是可以做的，<del>但是能不能过就是另一个问题了。</del>起初用DA 倍增求的后缀数组，TLE了，看了discuss才知道需要用DC3。于是学也没学DC3，上了个板子调了调ACL了。耗时2719ms…</p>
+          <h1 id="kuangbin后缀数组18-E"><a href="#kuangbin后缀数组18-E" class="headerlink" title="kuangbin后缀数组18 E"></a>kuangbin后缀数组18 E</h1>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/03/17/kuangbin18E/#more" rel="contents">
