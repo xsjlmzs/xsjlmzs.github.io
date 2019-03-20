@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="kuangbin后缀数组18I">
+<meta name="description" content="kuangbin后缀数组18 I">
 <meta name="keywords" content="后缀数组,单调栈">
 <meta property="og:type" content="article">
 <meta property="og:title" content="kuangbin18I">
 <meta property="og:url" content="http://yoursite.com/2019/03/19/kuangbin18I/index.html">
 <meta property="og:site_name" content="一个没有感情的blog">
-<meta property="og:description" content="kuangbin后缀数组18I">
+<meta property="og:description" content="kuangbin后缀数组18 I">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/03/19/kuangbin18I/18I.png">
-<meta property="og:updated_time" content="2019-03-19T12:49:59.373Z">
+<meta property="og:updated_time" content="2019-03-20T12:51:51.405Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kuangbin18I">
-<meta name="twitter:description" content="kuangbin后缀数组18I">
+<meta name="twitter:description" content="kuangbin后缀数组18 I">
 <meta name="twitter:image" content="http://yoursite.com/2019/03/19/kuangbin18I/18I.png">
 
 
@@ -322,7 +322,7 @@
       
 
       
-        <h1 id="kuangbin后缀数组18I"><a href="#kuangbin后缀数组18I" class="headerlink" title="kuangbin后缀数组18I"></a>kuangbin后缀数组18I</h1><a id="more"></a>
+        <h1 id="kuangbin后缀数组18-I"><a href="#kuangbin后缀数组18-I" class="headerlink" title="kuangbin后缀数组18 I"></a>kuangbin后缀数组18 I</h1><a id="more"></a>
 <h3 id="I"><a href="#I" class="headerlink" title="I"></a><a href="https://cn.vjudge.net/contest/70655#problem/I" target="_blank" rel="noopener">I</a></h3><p>​     给你两个字符串A和B，求长度不小于k的公共子串的个数。字符串长度len&lt;=1e5。</p>
 <h4 id="题解：后缀数组-单调栈"><a href="#题解：后缀数组-单调栈" class="headerlink" title="题解：后缀数组+单调栈"></a>题解：后缀数组+单调栈</h4><p>​    这道题也是论文上的题目，看样例很容易便能想到我们对于A中的每一个后缀，都去跟B的所有后缀匹配，计算一个lcp，每个lcp的贡献是lcp-k+1。到这里还都是比较好想和显然的，但是我们马上发现，这样的做法RMQ预处理之后也是O(n<sup>2</sup>)的时间复杂度，就数据范围来看是果断会TLE的。本题的难点就在这，如何处理才能做到O(nlogn)的时间复杂度呢。鶸表示不会了，看论文需要用单调栈，然后还是不会去看了题解才懂= =</p>
 <p>​    先把A和B连在一起中间加一个其他字符以便于分析公共子串，然后对height[]数组进行分组。</p>
@@ -372,6 +372,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/20/kuangbin18J+P/" rel="prev" title="kuangbin18J+P">
+                kuangbin18J+P <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -450,7 +454,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -496,7 +500,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#kuangbin后缀数组18I"><span class="nav-number">1.</span> <span class="nav-text">kuangbin后缀数组18I</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#I"><span class="nav-number">1.0.1.</span> <span class="nav-text">I</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题解：后缀数组-单调栈"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">题解：后缀数组+单调栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#kuangbin后缀数组18-I"><span class="nav-number">1.</span> <span class="nav-text">kuangbin后缀数组18 I</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#I"><span class="nav-number">1.0.1.</span> <span class="nav-text">I</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题解：后缀数组-单调栈"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">题解：后缀数组+单调栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
