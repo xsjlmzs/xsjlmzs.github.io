@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="性质及证明,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="最小点覆盖 + 最小边覆盖 + 最大点独立集 + 最大边独立集 + 最小路径覆盖">
+<meta name="keywords" content="性质及证明">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二分图相关性质及简单证明">
+<meta property="og:url" content="http://yoursite.com/2019/04/06/二分图相关性质及简单证明/index.html">
+<meta property="og:site_name" content="一个没有感情的blog">
+<meta property="og:description" content="最小点覆盖 + 最小边覆盖 + 最大点独立集 + 最大边独立集 + 最小路径覆盖">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-06T06:46:52.901Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="二分图相关性质及简单证明">
+<meta name="twitter:description" content="最小点覆盖 + 最小边覆盖 + 最大点独立集 + 最大边独立集 + 最小路径覆盖">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/04/06/二分图相关性质及简单证明/">
+
+
+
+
+
+  <title>二分图相关性质及简单证明 | 一个没有感情的blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">一个没有感情的blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/06/二分图相关性质及简单证明/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xsjlmzs">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一个没有感情的blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">二分图相关性质及简单证明</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-06T13:35:54+08:00">
+                2019-04-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="最小点覆盖-最小边覆盖-最大点独立集-最大边独立集-最小路径覆盖"><a href="#最小点覆盖-最小边覆盖-最大点独立集-最大边独立集-最小路径覆盖" class="headerlink" title="最小点覆盖 + 最小边覆盖 + 最大点独立集 + 最大边独立集 + 最小路径覆盖"></a>最小点覆盖 + 最小边覆盖 + 最大点独立集 + 最大边独立集 + 最小路径覆盖</h3><a id="more"></a>
+<h4 id="基本定义"><a href="#基本定义" class="headerlink" title="基本定义"></a>基本定义</h4><p><strong>参考<a href="https://dsqiu.iteye.com/blog/1689505" target="_blank" rel="noopener">链接</a></strong></p>
+<ul>
+<li><strong>最小点覆盖</strong>：点覆盖集即一个点集，使得所有边至少有一个端点在集合里。或者说是“点” 覆盖了所有“边”。最小点覆盖(minimum vertex covering)就是点最少的点覆盖。</li>
+<li><strong>最小边覆盖</strong>：边覆盖集即一个边集，使得所有点都与集合里的边邻接。或者说是“边” 覆盖了所有“点”。最小边覆盖(minimum edge covering)就是边最少的边覆盖。</li>
+<li><strong>最大点独立集</strong>：独立集即一个点集，集合中任两个结点不相邻，则称V为独立集。或者说是导出的子图是零图（没有边）的点集。最大独立集(maximum independent set)就是点最多的独立集。</li>
+<li><strong>最大边独立集</strong>：边独立集即一个边集，满足边集中的任两边不邻接。最大边独立集(maximum edge independent set)就是边最多的边独立集。(其实就是我们常说的<strong>最大匹配</strong>)</li>
+<li><strong>最小路径覆盖</strong>：在一张DAG图中，找出最少的路径，使得这些路径经过了所有的点。最小路径覆盖分为<strong>最小不相交路径覆盖</strong>和<strong>最小可相交路径覆盖</strong><ul>
+<li><strong>最小不相交路径覆盖</strong>：每一条路径经过的顶点各不相同。</li>
+<li><strong>最小可相交路径覆盖</strong>：每一条路径经过的顶点可以相同。</li>
+</ul>
+</li>
+</ul>
+<h4 id="常用性质及证明"><a href="#常用性质及证明" class="headerlink" title="常用性质及证明"></a>常用性质及证明</h4><ul>
+<li><p><strong>最小点覆盖=最大匹配</strong></p>
+<p>证明：对于所有边，要么它属于最大匹配，要么不属于。对于属于最大匹配中的所有边，我们一定需要同样数量的点来达成这一部分的点覆盖。对于剩余的边，如果这条边的两个端点都不属于最大匹配，那么这与最大匹配相矛盾，所以不可能存在，那么剩余的所有边必然有一个端点属于最大匹配中的点，那么我们在选择最小点覆盖时选择这些点，由于是最大匹配，所以不存在选这条边时能找到新的增广路而抛弃已经匹配边的情况。</p>
+</li>
+<li><p><strong>最小边覆盖=最大点独立集=顶点个数-最大匹配</strong></p>
+<p>记点数为n,最大匹配数为m，除去得到匹配的点后剩余的点数为a。则2m+a=n,最小边覆盖=m+a。故n-m=最小边覆盖。</p>
+<p>对于最大的点独立集，因为其中所有点都是不相邻的，所以我们可以直接排除所有的最小点覆盖所选择的点即为最大点独立集。因为最小点覆盖可以构成图中所有的边，所以剩余的点一定构成最大点独立集。</p>
+</li>
+<li><p><strong>最小路径覆盖(不相交)</strong>=<strong>顶点个数-最大匹配</strong></p>
+<p>参考<a href="https://www.cnblogs.com/jianglangcaijin/p/5989907.html" target="_blank" rel="noopener">链接</a></p>
+<blockquote>
+<p>由原图G构造对应的二分图S，将原图G中的每个点i拆成两个点i1和i2，i1和i2属于S。i1组成二分图的X集合，i2组成Y集合。</p>
+</blockquote>
+<blockquote>
+<p> 如果图中没有任何边，于是显然有最小路径覆盖=|G|－最大匹配数=|G|。在匹配数为0的基础上，即G中一条边没有，如果在G中增加一条匹配边(i1,j2)，那么在图G的路径覆盖中就存在一条由i连接j的边，也就是说i与j 在一条路径上，于是路径覆盖数就可以减少一个；如此继续增加匹配边，每增加一条，路径覆盖数就减少一条；直到匹配边不能继续增加时，路径覆盖数也不能再减少了。但是这里只是说明了每条匹配边对应于路径覆盖中的一条路径上的一条连接两个点之间的有向边；下面来说明一个路径覆盖中的每条连接两个顶点之间的有向边对应于一条匹配边。与前面类似，对于路径覆盖中的每条连接两个顶点之间的每条有向边&lt;i,j&gt;，我们可以在匹配图中对应作一条连接i1与j2的边，显然这样做出来二分图中的边均为匹配，即连接的X和Y中的两个点之前都未匹配过，否则匹配过的那个点对应原图时就被覆盖两次，与路径覆盖矛盾。这就说明匹配边与路径覆盖图中连接两顶点之间边的一一对应关系，那么也就说明了前面的公式成立，即S中每增加一条匹配边，路径覆盖数减少1。</p>
+</blockquote>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/性质及证明/" rel="tag"># 性质及证明</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/05/kuangbin10I/" rel="next" title="kuangbin10I">
+                <i class="fa fa-chevron-left"></i> kuangbin10I
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/06/kuangbin10J+K/" rel="prev" title="kuangbin10J+K">
+                kuangbin10J+K <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="xsjlmzs">
+            
+              <p class="site-author-name" itemprop="name">xsjlmzs</p>
+              <p class="site-description motion-element" itemprop="description">ACM</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#最小点覆盖-最小边覆盖-最大点独立集-最大边独立集-最小路径覆盖"><span class="nav-number">1.</span> <span class="nav-text">最小点覆盖 + 最小边覆盖 + 最大点独立集 + 最大边独立集 + 最小路径覆盖</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本定义"><span class="nav-number">1.1.</span> <span class="nav-text">基本定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用性质及证明"><span class="nav-number">1.2.</span> <span class="nav-text">常用性质及证明</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xsjlmzs</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
