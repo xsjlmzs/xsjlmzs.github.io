@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="二分枚举,后缀数组,字符串哈希,">
+  <meta name="keywords" content="后缀数组,二分枚举,字符串哈希,">
 
 
 
@@ -80,16 +80,16 @@
 
 
 <meta name="description" content="kuangbin专题18后缀数组 Q">
-<meta name="keywords" content="二分枚举,后缀数组,字符串哈希">
+<meta name="keywords" content="后缀数组,二分枚举,字符串哈希">
 <meta property="og:type" content="article">
-<meta property="og:title" content="kuangbinQ">
+<meta property="og:title" content="kuangbin18Q">
 <meta property="og:url" content="http://yoursite.com/2019/03/21/kuangbin18Q/index.html">
 <meta property="og:site_name" content="一个没有感情的blog">
 <meta property="og:description" content="kuangbin专题18后缀数组 Q">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-07T10:51:31.197Z">
+<meta property="og:updated_time" content="2019-08-23T04:54:26.692Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="kuangbinQ">
+<meta name="twitter:title" content="kuangbin18Q">
 <meta name="twitter:description" content="kuangbin专题18后缀数组 Q">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>kuangbinQ | 一个没有感情的blog</title>
+  <title>kuangbin18Q | 一个没有感情的blog</title>
   
 
 
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">kuangbinQ</h1>
+          <h1 class="post-title" itemprop="name headline">kuangbin18Q</h1>
         
 
         <div class="post-meta">
@@ -324,7 +324,7 @@
 <h3 id="Q"><a href="#Q" class="headerlink" title="Q"></a><a href="https://cn.vjudge.net/contest/70655#problem/Q" target="_blank" rel="noopener">Q</a></h3><p>​    给你一个字符擦混，两种操作I与Q。q个查询。字符串长度&lt;5e4，Q操作数量&lt;=1e4，I操作数量&lt;200。</p>
 <p>Q   i ，j：初始串的 i 后缀与 j 后缀的lcp。  I   ch，j：在第j个位置前插入一个字符ch。时间限制8000ms。</p>
 <h4 id="题解：字符串哈希-二分枚举-后缀数组"><a href="#题解：字符串哈希-二分枚举-后缀数组" class="headerlink" title="题解：字符串哈希+二分枚举 /后缀数组"></a>题解：字符串哈希+二分枚举 /后缀数组</h4><p>​    分析题目规模，对于每次I操作肯定不能重构一个新后缀数组，蒟蒻表示不会了。。。最后靠的哈希水过。。考虑的I操作最多只有200次，每次I操作都重构一个新的字符串，并用一个pos[]数组记录下初始串映射到新字符串的位置，每次Q操作进行二分枚举验证。总的时间复杂度不超过1e7，代码写起来也十分容易。</p>
-<p>​    然而这个题的正解是后缀数组，后缀数组做法我没有写，跟哈希比起来难写多了。<del>（是因为懒）</del>说一下后缀数组大概的方法：对于I操作，直接插入大宋原串即可。对于Q操作，先用RMQ预处理一下，分两种情况。</p>
+<p>​    然而这个题的正解是后缀数组，后缀数组做法我没有写，跟哈希比起来难写多了。<del>（是因为懒）</del>说一下后缀数组大概的方法：对于I操作，直接插入原串即可。对于Q操作，先用RMQ预处理一下，分两种情况。</p>
 <ol>
 <li>如果LCP &lt;  k-1，显然插入字符对查询值无影响； </li>
 <li>如果LCP &gt;= k-1，则从k位置开始，用t1，t2逐个指向当前序列中的字符，直至t1，,t2指向的均为原序列中的字符为止，然后递归查询t1，t2 。</li>
@@ -347,9 +347,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/二分枚举/" rel="tag"># 二分枚举</a>
-          
             <a href="/tags/后缀数组/" rel="tag"># 后缀数组</a>
+          
+            <a href="/tags/二分枚举/" rel="tag"># 二分枚举</a>
           
             <a href="/tags/字符串哈希/" rel="tag"># 字符串哈希</a>
           
@@ -455,7 +455,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -468,7 +468,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
