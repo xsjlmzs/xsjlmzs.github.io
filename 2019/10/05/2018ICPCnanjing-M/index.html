@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="扩展KMP,Manacher,差分,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="2018ICPCnanjing_M">
+<meta name="keywords" content="扩展KMP,Manacher,差分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2018ICPCnanjing_M">
+<meta property="og:url" content="http://yoursite.com/2019/10/05/2018ICPCnanjing-M/index.html">
+<meta property="og:site_name" content="一个没有感情的blog">
+<meta property="og:description" content="2018ICPCnanjing_M">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/10/05/2018ICPCnanjing-M/picture.png">
+<meta property="og:updated_time" content="2019-10-05T05:52:33.528Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2018ICPCnanjing_M">
+<meta name="twitter:description" content="2018ICPCnanjing_M">
+<meta name="twitter:image" content="http://yoursite.com/2019/10/05/2018ICPCnanjing-M/picture.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/10/05/2018ICPCnanjing-M/">
+
+
+
+
+
+  <title>2018ICPCnanjing_M | 一个没有感情的blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">一个没有感情的blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/05/2018ICPCnanjing-M/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xsjlmzs">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一个没有感情的blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">2018ICPCnanjing_M</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-05T13:11:48+08:00">
+                2019-10-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="2018ICPCnanjing-M"><a href="#2018ICPCnanjing-M" class="headerlink" title="2018ICPCnanjing_M"></a>2018ICPCnanjing_M</h1><a id="more"></a>
+<h3 id="Mediocre-String-Problem"><a href="#Mediocre-String-Problem" class="headerlink" title="Mediocre String Problem"></a><a href="https://codeforces.com/gym/101981/attachments" target="_blank" rel="noopener">Mediocre String Problem</a></h3><p>​    给出两个字符串s,t(len&lt;=1e6),在s中找出一个子串，与t串的一个前缀(1..k)拼接而成，要求s子串的长度大于t的前缀,即(j-i+1)&gt;k，能够组成回文串的情况有多少种方案。</p>
+<h4 id="题解：扩展KMP-Manacher"><a href="#题解：扩展KMP-Manacher" class="headerlink" title="题解：扩展KMP+Manacher"></a>题解：扩展KMP+Manacher</h4><p>​    比赛时没做出来，补题！注意题中这样一个限制，s中选定的子串长度须大于t的前缀串。抽象一下，也就是说需要在s中找出一个子串跟t的前缀k回文，且s子串后需跟着至少长度为1的回文串。如图所示s与k构成回文且中间夹着一个回文串。统计答案，不难发现即为所有满足的 s子串长度*回文个数累加。对于求s子串长度，我们可以翻转原s串，求exkmp，即可得到每一个位置与t最长的公共前缀长度。对于回文个数，先manacher处理出回文重心lr[]数组，对于每个位置，求以该位置为右边界的回文串个数，差分即可解决。</p>
+<p><img src="/2019/10/05/2018ICPCnanjing-M/picture.png" alt="pic"></p>
+<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN=<span class="number">1e6</span>+<span class="number">20</span>;</span><br><span class="line"><span class="keyword">char</span> str[MAXN&lt;&lt;<span class="number">1</span>];</span><br><span class="line"><span class="keyword">char</span> newstr[MAXN&lt;&lt;<span class="number">1</span>];</span><br><span class="line"><span class="keyword">int</span> lr[MAXN&lt;&lt;<span class="number">1</span>];</span><br><span class="line"><span class="keyword">int</span> cf[MAXN&lt;&lt;<span class="number">1</span>];<span class="comment">//chafen</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">init</span><span class="params">(<span class="keyword">int</span> len)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> newlen=<span class="number">0</span>;</span><br><span class="line">    newstr[newlen++]=<span class="string">'#'</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        newstr[newlen++]=str[i];</span><br><span class="line">        newstr[newlen++]=<span class="string">'#'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    newstr[newlen]=<span class="string">'\0'</span>;</span><br><span class="line">    <span class="keyword">return</span> newlen;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Manacher</span><span class="params">(<span class="keyword">int</span> len)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>,po=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> newlen=init(len);</span><br><span class="line">    lr[po]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;newlen;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(i&lt;lr[po]+po<span class="number">-1</span>)</span><br><span class="line">            lr[i]=min(po+lr[po]<span class="number">-1</span>-i,lr[<span class="number">2</span>*po-i]);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            lr[i]=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(i+lr[i]&lt;newlen&amp;&amp;i-lr[i]&gt;=<span class="number">0</span>&amp;&amp;newstr[i+lr[i]]==newstr[i-lr[i]])</span><br><span class="line">            ++lr[i];</span><br><span class="line">        <span class="keyword">if</span>(po+lr[po]<span class="number">-1</span>&lt;i+lr[i]<span class="number">-1</span>)</span><br><span class="line">            po=i;</span><br><span class="line">        ans=max(ans,lr[i]<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">char</span> s[MAXN];</span><br><span class="line"><span class="keyword">char</span> t[MAXN];</span><br><span class="line"><span class="keyword">int</span> nxt[MAXN];</span><br><span class="line"><span class="keyword">int</span> extend[MAXN];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_nxt</span><span class="params">(<span class="keyword">int</span> tlen)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    nxt[<span class="number">0</span>]=tlen;</span><br><span class="line">    <span class="keyword">int</span> i=<span class="number">0</span>,po=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(i+<span class="number">1</span>&lt;tlen&amp;&amp;t[i]==t[i+<span class="number">1</span>])</span><br><span class="line">        ++i;</span><br><span class="line">    nxt[<span class="number">1</span>]=i;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k+<span class="number">1</span>&lt;tlen;++k)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(k+nxt[k+<span class="number">1</span>-po]&lt;po+nxt[po]<span class="number">-1</span>)</span><br><span class="line">            nxt[k+<span class="number">1</span>]=nxt[k+<span class="number">1</span>-po];</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> j=nxt[po]+po<span class="number">-1</span>-k;</span><br><span class="line">            <span class="keyword">if</span>(j&lt;<span class="number">0</span>) j=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span>(k+<span class="number">1</span>+j&lt;tlen&amp;&amp;t[j]==t[j+k+<span class="number">1</span>])</span><br><span class="line">                ++j;</span><br><span class="line">            nxt[k+<span class="number">1</span>]=j;</span><br><span class="line">            po=k+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_ext</span><span class="params">(<span class="keyword">int</span> slen,<span class="keyword">int</span> tlen)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i=<span class="number">0</span>,po=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;slen&amp;&amp;i&lt;tlen&amp;&amp;s[i]==t[i])</span><br><span class="line">        ++i;</span><br><span class="line">    extend[<span class="number">0</span>]=i;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>;k+<span class="number">1</span>&lt;slen;++k)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(nxt[k+<span class="number">1</span>-po]+k&lt;extend[po]+po<span class="number">-1</span>)</span><br><span class="line">            extend[k+<span class="number">1</span>]=nxt[k+<span class="number">1</span>-po];</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> j=extend[po]+po<span class="number">-1</span>-k;</span><br><span class="line">            <span class="keyword">if</span>(j&lt;<span class="number">0</span>) j=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span>(k+<span class="number">1</span>+j&lt;slen&amp;&amp;j&lt;tlen&amp;&amp;s[j+k+<span class="number">1</span>]==t[j])</span><br><span class="line">                ++j;</span><br><span class="line">            extend[k+<span class="number">1</span>]=j;</span><br><span class="line">            po=k+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s%s"</span>,s,t);</span><br><span class="line">    <span class="keyword">int</span> slen=<span class="built_in">strlen</span>(s),tlen=<span class="built_in">strlen</span>(t);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>,j=slen<span class="number">-1</span>;i&lt;j;++i,--j)</span><br><span class="line">        swap(s[i],s[j]);</span><br><span class="line">    get_nxt(tlen);</span><br><span class="line">    get_ext(slen,tlen);</span><br><span class="line">    <span class="built_in">memcpy</span>(str,s,<span class="keyword">sizeof</span>(s));</span><br><span class="line">    Manacher(slen);</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> newlen=<span class="number">2</span>*slen+<span class="number">1</span>;</span><br><span class="line">    cf[newlen<span class="number">-1</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=newlen<span class="number">-2</span>;i&gt;=<span class="number">0</span>;--i)</span><br><span class="line">    &#123;</span><br><span class="line">        cf[i+lr[i]<span class="number">-1</span>]++;</span><br><span class="line">        cf[i]--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=newlen<span class="number">-2</span>;i&gt;=<span class="number">0</span>;--i)</span><br><span class="line">        cf[i]+=cf[i+<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;slen;++i)</span><br><span class="line">    &#123;</span><br><span class="line">        ans+=<span class="number">1l</span>l*extend[i]*cf[<span class="number">2</span>*i<span class="number">-1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/扩展KMP/" rel="tag"># 扩展KMP</a>
+          
+            <a href="/tags/Manacher/" rel="tag"># Manacher</a>
+          
+            <a href="/tags/差分/" rel="tag"># 差分</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/25/codeforces1206D/" rel="next" title="codeforces1206D">
+                <i class="fa fa-chevron-left"></i> codeforces1206D
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/06/2016chinafinal-F/" rel="prev" title="2016chinafinal_F">
+                2016chinafinal_F <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="xsjlmzs">
+            
+              <p class="site-author-name" itemprop="name">xsjlmzs</p>
+              <p class="site-description motion-element" itemprop="description">ACM</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">74</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2018ICPCnanjing-M"><span class="nav-number">1.</span> <span class="nav-text">2018ICPCnanjing_M</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mediocre-String-Problem"><span class="nav-number">1.0.1.</span> <span class="nav-text">Mediocre String Problem</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题解：扩展KMP-Manacher"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">题解：扩展KMP+Manacher</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码："><span class="nav-number">1.0.2.</span> <span class="nav-text">代码：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xsjlmzs</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
